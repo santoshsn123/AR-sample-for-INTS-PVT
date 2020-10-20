@@ -1,9 +1,9 @@
 # AR Sample For INTS-PVT
 
-This is AR sample created in HTML, Three.js, artoolkit. The sample will open camera once you will show hiro QR code it will start simply displaying cube on it.
+This is AR sample created in HTML, Three.js, artoolkit. The sample will open camera from browser. Once you will show hiro QR code to camera, it will start simply displaying cube on it. (We can replace cube with any object)
 
 If we will show Patern-A image to camera it will start the cube rotation.
-we can add as many as patterns (QR Imges) and can do any actions on the basis of the QR code we will be showing there.
+We can add as many as patterns (QR Imges) and can do any actions on the basis of patterns.
 
 ### Two Images will be used for this sample
 
