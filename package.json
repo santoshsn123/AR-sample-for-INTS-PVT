@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/santoshsn123/AR-sample-for-INTS-PVT/issues"
   },
-  "homepage": "https://github.com/santoshsn123/AR-sample-for-INTS-PVT#readme"
+  "homepage": "https://github.com/santoshsn123/AR-sample-for-INTS-PVT#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
