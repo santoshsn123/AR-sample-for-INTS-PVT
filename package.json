@@ -1,0 +1,20 @@
+{
+  "name": "ar-sample-for-ints-pvt",
+  "version": "1.0.0",
+  "description": "This is AR sample created in HTML, Three.js, artoolkit. The sample will open camera from browser. Once you will show hiro QR code to camera, it will start simply displaying cube on it. (We can replace cube with any object)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/santoshsn123/AR-sample-for-INTS-PVT.git"
+  },
+  "author": "Santosh Narawade",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/santoshsn123/AR-sample-for-INTS-PVT/issues"
+  },
+  "homepage": "https://github.com/santoshsn123/AR-sample-for-INTS-PVT#readme"
+}
