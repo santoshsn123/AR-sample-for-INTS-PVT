@@ -82,7 +82,8 @@ function initialize() {
 
   new THREEx.ArMarkerControls(arToolkitContext, markerRoot1, {
     type: "pattern",
-    patternUrl: "http://localhost:8081/uploaded-image/hiro.patt",
+    patternUrl: "data/hiro.patt",
+    // patternUrl: "http://localhost:8081/uploaded-image/hiro.patt",
   });
 
   // patternA = new THREE.Group();
