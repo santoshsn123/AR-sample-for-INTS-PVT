@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>My first three.js app</title>
+		<style>
+			body { margin: 0; }
+			canvas { display: block; }
+		</style>
+	</head>
+	<body>
+        <!-- <script src="js/three.js"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r122/three.min.js" integrity="sha512-bzjaf85dHTL4H0BvkAJ/Jbvxqf1rDj+jVpCNe3oxQj/RXSnkx1HnKhqIcmMWghxEAbXsYgddrc38saWpltlkug==" crossorigin="anonymous"></script>
+		<script>
+			const scene = new THREE.Scene();
+			const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+            //Add Axis
+            const axesHelper = new THREE.AxesHelper( 5 );
+            scene.add( axesHelper );
+
+			const renderer = new THREE.WebGLRenderer();
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			document.body.appendChild( renderer.domElement );
+
+			const geometry = new THREE.BoxGeometry(1,1,1);
+			const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+			const cube = new THREE.Mesh( geometry, material );
+			scene.add( cube );
+
+			camera.position.z = 5;
+
+			const animate = function () {
+				requestAnimationFrame( animate );
+
+				cube.rotation.x += 0.01;
+				cube.rotation.y += 0.01;
+
+				renderer.render( scene, camera );
+			};
+
+            animate();
+            
+
+            //Line
+            const material1 = new THREE.LineBasicMaterial( { color: 0x0000ff } );
+            const points = [];
+            points.push( new THREE.Vector3( - 5, 1, 0 ) );
+            points.push( new THREE.Vector3( 0, -3, 0 ) );
+            points.push( new THREE.Vector3( 5, 2, 0 ) );
+
+            const geometry1 = new THREE.BufferGeometry().setFromPoints( points );
+            const line = new THREE.Line( geometry1, material1 );
+
+            scene.add( line );
+
+            const textGeometry = new THREE.TextGeometry( 'Hello three.js!', {
+                font:'arial',
+		size: 80,
+		height: 5,
+		curveSegments: 12,
+		bevelEnabled: true,
+		bevelThickness: 10,
+		bevelSize: 8,
+		bevelOffset: 0,
+		bevelSegments: 5
+    } );
+    var textMaterial = new THREE.MeshPhongMaterial( 
+    { color: 0xff0000, specular: 0xffffff }
+  );
+
+  var mesh = new THREE.Mesh( textGeometry, textMaterial );
+  mesh.position.set(5,5,5);
+  scene.add( mesh );
+
+  var loader = new THREE.FontLoader();
+// loader.load( 'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/fonts/gentilis_bold.typeface.json', function ( font ) {
+//     var textGeo = new THREE.TextGeometry( "THREE.JS", {
+//         font: font,
+//         size: 1, // font size
+//         height: 1, // how much extrusion (how thick / deep are the letters)
+//         curveSegments: 1,
+//         // bevelThickness: 1,
+//         // bevelSize: 1,
+//         // bevelEnabled: true
+//     });
+//     textGeo.computeBoundingBox();
+//     var textMaterial = new THREE.MeshPhongMaterial( { color: 0xffffff, specular: 0xffffff } );
+//     var mesh = new THREE.Mesh( textGeo, textMaterial );
+//     mesh.position.x = -1;
+//     mesh.position.y = 0;
+//     mesh.position.z = -2;
+//     mesh.castShadow = true;
+//     mesh.receiveShadow = true;
+//     scene.add( mesh );
+// });
+
+const light = new THREE.PointLight( 0xffffff, 1, 100 );
+light.position.set( 50, 50, 50 );
+scene.add( light );
+
+
+const PlaneGeometry = new THREE.PlaneGeometry( 4, 3, 1 );
+const PlaneMaterial = new THREE.MeshBasicMaterial( {color: 0xffff00, side: THREE.DoubleSide,opacity:0.1,} );
+const plane = new THREE.Mesh( PlaneGeometry, PlaneMaterial );
+// plane.rotation.y -= 90;
+setInterval(()=>{
+    // plane.rotation.x -= 0.1;
+    // plane.rotation.y -= 0.1;
+    plane.rotation.z -= 0.1;
+},40)
+
+// plane.rotation.set(new THREE.Vector3( 0, 0, Math.PI / 2));
+plane.position.set(1,1,-1);
+scene.add( plane );
+
+
+
+// var img = new THREE.MeshBasicMaterial({ //CHANGED to MeshBasicMaterial
+//         map:THREE.ImageUtils.loadTexture('images/image1.png')
+//     });
+    var texture = new THREE.TextureLoader().load( 'images/image1.png' );
+    var imgmaterial = new THREE.MeshPhongMaterial({map: texture, color: 0xFFFFFF});
+    imgmaterial.transparent = true
+    var plane1 = new THREE.Mesh(new THREE.PlaneGeometry(2, 2),imgmaterial);
+    plane1.position.set(2,0,0);
+    scene.add(plane1);
+
+
+
+		</script>
+	</body>
+</html>
